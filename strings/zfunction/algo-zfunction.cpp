@@ -6,8 +6,9 @@
 
 using namespace std;
 
+// O(n)
 template<class T>
-vector<int> zFunction( const T &s ) {
+vector<int> zFunction(const T &s) {
 	int n = s.size();
 	vector<int> z(n);
 	int l = 0, r = -1;

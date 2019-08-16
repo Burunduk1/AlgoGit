@@ -11,7 +11,7 @@
 #define forn(i, n) for (int i = 0; i < (int)(n); i++)
 
 template <class T>
-vector<int> slow( const T &s ) {
+vector<int> slow(const T &s) {
 	int n = s.size();
 	vector<int> z(n);
 	for (int i = 1; i < n; i++) 
@@ -30,9 +30,11 @@ int main() {
 				forn(j, n)
 					s += 'a' + rand() % alpha;
 				auto ca = zFunction(s), ja = slow(s);
-				// forn(i, s.size())
-				// 	printf("%d : %d %d\n", i, ca[i], ja[i]);
-				// printf("%s\n", s.c_str());
+				if (ca != ja) {
+					forn(i, s.size())
+						printf("%d : %d %d\n", i, ca[i], ja[i]);
+					printf("%s\n", s.c_str());
+				}
 				assert(ca == ja);
 			}
 		}

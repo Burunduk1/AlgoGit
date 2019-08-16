@@ -4,6 +4,7 @@
 
 #include <cstdio>
 #include <cassert>
+#include <cstdarg>
 #include <string>
 
 #include "algo-zfunction.cpp"
@@ -13,21 +14,24 @@
 struct Timer {
 	double ticks;
 	Timer() : ticks(0) { }
-	void start() {
-		ticks = clock();
-	}
+	void start() { ticks = clock(); 	}
 	double sec() {
 		return (clock() - ticks) / CLOCKS_PER_SEC;
 	}
-	void print( const char *s = 0 ) {
-		printf("%.3f : %s\n", sec(), s ? s : "");
-	}
 } t;
 
-void launch( const vector<int> &test, const char *s = 0 ) {
+void launch(const vector<int> &test, const char *s = 0, ...) {
 	t.start();
+
 	zFunction(test);
-	t.print(s);
+
+	printf("%.3fsec : ", t.sec());
+	if (s) {
+		va_list list;
+		va_start(list, s);
+		vprintf(s, list);
+	}
+	puts("");
 }
 
 int main() {
@@ -35,9 +39,9 @@ int main() {
 	printf("N = %d\n", N);
 	vector<int> test(N, 1);
 	test.push_back(2);
-	launch(test, "aaaaaaab");
+	launch(test, "aaaaaaab, n = %d", N);
 	test[N / 2] = 2;
-	launch(test, "aaabaaab");
+	launch(test, "aaabaaab, n = %d", N);
 	for (auto &x : test) x = rand() % 2;
 	launch(test, "random");
 }
