@@ -39,17 +39,15 @@ void test_TL(Test test, Solution solve) {
 }
 
 template<class Test, class Solution>
-void test_WA(Test test, Solution solve) {
-	auto [time, output] = launch_with_answer(test, solve);
-	err("%s: ", solve.name);
-	assert(test.check(output));
-	err("OK\n");
-}
-
-template<class Test, class Solution>
 void test_WA_TL(Test test, Solution solve) {
 	auto [time, output] = launch_with_answer(test, solve);
 	err("%.3f sec: %s, ", time, solve.name);
-	assert(test.check(output));
+	if (!test.check(output)) {
+		err("FAIL\n");
+		err("input:\n"),  test.out_test();
+		err("answer:\n"), test.out_answer();
+		err("output:\n"), Test::out_answer(output);
+		std::abort();
+	}
 	err("OK\n");
 }

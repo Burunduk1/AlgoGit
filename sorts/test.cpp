@@ -7,10 +7,16 @@
 #include <algorithm>
 
 #include "../testing/launch.cpp"
+
 #include "qsort.cpp"
 #include "msort.cpp"
+#include "hsort.cpp"
 
 using namespace std;
+
+void out(const vector<int> &a) {
+	copy(a.begin(), a.end(), ostream_iterator<int>(cout, " ")), cout << endl;
+}
 
 struct Test {
 	using Answer = vector<int>;
@@ -20,17 +26,12 @@ struct Test {
 		for (int &x : a)
 			x = rnd();
 		answer = a;
-		std::sort(answer.begin(), answer.end());
+		sort(answer.begin(), answer.end());
 	}
-	void out_test() {
-		copy(a.begin(), a.end(), ostream_iterator<int>(cout, " ")), cout << endl;
-	}
-	void out_answer() {
-		copy(answer.begin(), answer.end(), ostream_iterator<int>(cout, " ")), cout << endl;
-	}
-	bool check(const Answer &output) {
-		return output == answer;
-	}
+	void out_test() { out(a); }
+	void out_answer() { out(answer); }
+	static void out_answer(const Answer &x) { out(x); }
+	bool check(const Answer &output) { return output == answer; }
 };
 
 template<class Test>
@@ -56,6 +57,8 @@ int main() {
 	cin >> n;
 
 	Test t(n);
+
+	test_WA_TL(t, Solution<Test> {hsort, "heap sort"});
 
 	test_WA_TL(t, Solution<Test> {sort, "std::sort"});
 	test_WA_TL(t, Solution<Test> {qsort_insertion<int>, "quick sort with median and insertion"});

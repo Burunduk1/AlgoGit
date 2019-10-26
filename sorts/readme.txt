@@ -1,4 +1,5 @@
 $ echo 5000000 | ./test 
+1.134 sec: heap sort, OK
 0.468 sec: std::sort, OK
 0.516 sec: quick sort with median and insertion, OK
 0.592 sec: quick sort with median, OK

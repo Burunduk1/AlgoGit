@@ -1,3 +1,7 @@
+/**
+ * Sergey Kopeliovich (burunduk30@gmail.com)
+ */
+
 #include <vector>
 #include <algorithm>
 
