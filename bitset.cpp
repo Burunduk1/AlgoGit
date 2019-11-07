@@ -1,4 +1,3 @@
-// this is debug version
 // release version: asserts should be off
 
 #include <cassert>

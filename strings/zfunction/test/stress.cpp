@@ -6,7 +6,7 @@
 #include <cassert>
 #include <string>
 
-#include "algo-zfunction.cpp"
+#include "../zfunction.cpp"
 
 #define forn(i, n) for (int i = 0; i < (int)(n); i++)
 

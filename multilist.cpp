@@ -1,4 +1,3 @@
-// this is debug version
 // release version: asserts should be off
 
 #include <vector>
@@ -18,6 +17,7 @@ struct List {
         next[n] = head[i], data[n] = x, head[i] = n++;
     }
 };
+// List<int> g(n, m);
 
 void dfs(int v, const List<int> &g) {
     for (int i = g.head[v]; i != -1; i = g.next[i]) {
