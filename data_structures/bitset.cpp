@@ -1,17 +1,17 @@
-// release version: asserts should be off
+// this is debug version
+// release version: asserts have to be off
 
 #include <cassert>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 #define forn(i, n) for (int i = 0; i < n; i++)
 
-typedef unsigned long long ull;
-
 struct Bitset {
 	int n;
-	vector<ull> data;
+	vector<int64_t> data;
 	void init(int _n) {	data.assign(n = _n / 64 + 1, 0); }
 	Bitset(int n = 0) { init(n); }
 	bool contains(const Bitset &b) const {

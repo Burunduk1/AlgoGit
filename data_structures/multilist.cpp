@@ -1,3 +1,4 @@
+// this is debug version
 // release version: asserts should be off
 
 #include <vector>
@@ -19,6 +20,7 @@ struct List {
 };
 // List<int> g(n, m);
 
+/** Example of usage */
 void dfs(int v, const List<int> &g) {
     for (int i = g.head[v]; i != -1; i = g.next[i]) {
         auto x = g.data[i];
@@ -26,8 +28,6 @@ void dfs(int v, const List<int> &g) {
         dfs(x, g);
     }
 }
-
-/** Example of usage */
 int main() {
     int n;
     assert(scanf("%d", &n) == 1);

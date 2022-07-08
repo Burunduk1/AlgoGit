@@ -3,7 +3,7 @@
 using namespace std;
 
 unsigned R() { return (rand() << 15) ^ rand(); }
-int rndInt( int n ) { return R() % n; }
+int rndInt(int n) { return R() % n; }
 
 mt19937 rnd1(239);
 mt19937 rnd2(chrono::system_clock::now().time_since_epoch().count()); // seed = time
