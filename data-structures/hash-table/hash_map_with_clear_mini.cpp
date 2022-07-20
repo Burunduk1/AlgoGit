@@ -1,10 +1,10 @@
 template<const int MAX_SIZE = int(1e5 + 3), class HashType = int, class Data = int> // DEFAULT_VALUE = Data()
-struct HashTable {
+struct HashMap {
 	HashType hash[MAX_SIZE];
 	Data f[MAX_SIZE];
 	int size, cc, used[MAX_SIZE];
 
-	HashTable() { size = 0, cc = 1; }
+	HashMap() { size = 0, cc = 1; }
 	void clear() { size = 0, cc++; }
 
 	int position(HashType H) const {
@@ -33,8 +33,8 @@ struct HashTable {
 
 using namespace std;
 
-HashTable h; // can be used only as global variable (need arrays of zeroes inside)
-HashTable<int(2e6+3), int64_t, string> h2; // string literal cannot be used as a template argument => DEFAULT_VALUE not in template args
+HashMap h; // can be used only as global variable (need arrays of zeroes inside)
+HashMap<int(2e6+3), int64_t, string> h2; // string literal cannot be used as a template argument => DEFAULT_VALUE not in template args
 
 int main() {
 	cout << h.count(3) << endl;

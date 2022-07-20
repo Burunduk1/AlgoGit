@@ -1,5 +1,5 @@
 template<const int MAX_SIZE = int(1e5 + 3), class HashType = int, class Data = int>
-struct hashTable {
+struct HashMap {
 	HashType hash[MAX_SIZE];
 	Data f[MAX_SIZE];
 	int size;
@@ -22,5 +22,5 @@ struct hashTable {
 
 /* Usage */
 
-hashTable h1; // can be used only as global variable (need arrays of zeroes inside)
-hashTable<int(2e6+3), long long, char*> h2;
+HashMap h1; // can be used only as global variable (need arrays of zeroes inside)
+HashMap<int(2e6+3), long long, char*> h2;

@@ -1,5 +1,5 @@
 template<const int MAX_SIZE>
-struct hashTable {
+struct HashMap {
 	int hash[MAX_SIZE], f[max_size];
 
 	int position(HashType H) const {
@@ -11,4 +11,4 @@ struct hashTable {
 	}
 };
 
-hashTable<(int)2e6 + 3> h;
+HashMap<(int)2e6 + 3> h;
