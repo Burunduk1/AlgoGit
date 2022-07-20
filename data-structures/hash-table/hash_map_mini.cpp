@@ -1,13 +1,13 @@
-template<const int max_size = int(1e5 + 3), class HashType = int, class Data = int>
+template<const int MAX_SIZE = int(1e5 + 3), class HashType = int, class Data = int>
 struct hashTable {
-	HashType hash[max_size];
-	Data f[max_size];
+	HashType hash[MAX_SIZE];
+	Data f[MAX_SIZE];
 	int size;
 
 	int position(HashType H) const {
-		int i = H % max_size; // may cause TLE if H1, H2, H3.... form a long segment
+		int i = H % MAX_SIZE; // may cause TLE if H1, H2, H3.... form a long segment
 		while (hash[i] && hash[i] != H) // H != 0
-			if (++i == max_size)
+			if (++i == MAX_SIZE)
 				i = 0;
 		return i;
 	}
