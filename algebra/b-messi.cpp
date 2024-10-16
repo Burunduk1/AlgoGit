@@ -13,7 +13,7 @@ int pw(int a, int n) {
 	x = mul(x, x);
 	return n % 2 ? mul(x, a) : x;
 }
-int div(int a, int b) { return mul(a, pw(b, MOD - 2)); }
+int Div(int a, int b) { return mul(a, pw(b, MOD - 2)); }
 
 vector<int> berlekampMassey(vector<int> s) {
 	int n = s.size();
@@ -29,7 +29,7 @@ vector<int> berlekampMassey(vector<int> s) {
 		if (!d)
 			continue;
 		auto C_ = C; // save version before modification
-		int coef = div(d, b);
+		int coef = Div(d, b);
 		for (int j = m; j < n; ++j)
 			C[j] = sub(C[j], mul(coef, B[j - m]));
 		if (2 * L <= i)
